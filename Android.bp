@@ -71,6 +71,281 @@ rust_test {
     defaults: ["jni_test_defaults"],
 }
 
+rust_defaults {
+    name: "jni_test_defaults_jni",
+    crate_name: "jni",
+    cargo_env_compat: true,
+    cargo_pkg_version: "0.19.0",
+    test_suites: ["general-tests"],
+    auto_gen_config: true,
+    edition: "2018",
+    features: ["default"],
+    rustlibs: [
+        "libcesu8",
+        "libcombine",
+        "libjni",
+        "libjni_sys",
+        "liblazy_static",
+        "liblog_rust",
+        "libthiserror",
+    ],
+}
+
+rust_test_host {
+    name: "jni_host_test_tests_executor",
+    defaults: ["jni_test_defaults_jni"],
+    // has rustc warnings
+    srcs: ["tests/executor.rs"],
+    test_options: {
+        unit_test: true,
+    },
+}
+
+rust_test {
+    name: "jni_device_test_tests_executor",
+    defaults: ["jni_test_defaults_jni"],
+    // has rustc warnings
+    srcs: ["tests/executor.rs"],
+}
+
+rust_test_host {
+    name: "jni_host_test_tests_executor_nested_attach",
+    defaults: ["jni_test_defaults_jni"],
+    // has rustc warnings
+    srcs: ["tests/executor_nested_attach.rs"],
+    test_options: {
+        unit_test: true,
+    },
+}
+
+rust_test {
+    name: "jni_device_test_tests_executor_nested_attach",
+    defaults: ["jni_test_defaults_jni"],
+    // has rustc warnings
+    srcs: ["tests/executor_nested_attach.rs"],
+}
+
+rust_test_host {
+    name: "jni_host_test_tests_java_integers",
+    defaults: ["jni_test_defaults_jni"],
+    // has rustc warnings
+    srcs: ["tests/java_integers.rs"],
+    test_options: {
+        unit_test: true,
+    },
+}
+
+rust_test {
+    name: "jni_device_test_tests_java_integers",
+    defaults: ["jni_test_defaults_jni"],
+    // has rustc warnings
+    srcs: ["tests/java_integers.rs"],
+}
+
+rust_test_host {
+    name: "jni_host_test_tests_jmap",
+    defaults: ["jni_test_defaults_jni"],
+    // has rustc warnings
+    srcs: ["tests/jmap.rs"],
+    test_options: {
+        unit_test: true,
+    },
+}
+
+rust_test {
+    name: "jni_device_test_tests_jmap",
+    defaults: ["jni_test_defaults_jni"],
+    // has rustc warnings
+    srcs: ["tests/jmap.rs"],
+}
+
+rust_test_host {
+    name: "jni_host_test_tests_jni_api",
+    defaults: ["jni_test_defaults_jni"],
+    // has rustc warnings
+    srcs: ["tests/jni_api.rs"],
+    test_options: {
+        unit_test: true,
+    },
+}
+
+rust_test {
+    name: "jni_device_test_tests_jni_api",
+    defaults: ["jni_test_defaults_jni"],
+    // has rustc warnings
+    srcs: ["tests/jni_api.rs"],
+}
+
+rust_test_host {
+    name: "jni_host_test_tests_jni_global_refs",
+    defaults: ["jni_test_defaults_jni"],
+    // has rustc warnings
+    srcs: ["tests/jni_global_refs.rs"],
+    test_options: {
+        unit_test: true,
+    },
+}
+
+rust_test {
+    name: "jni_device_test_tests_jni_global_refs",
+    defaults: ["jni_test_defaults_jni"],
+    // has rustc warnings
+    srcs: ["tests/jni_global_refs.rs"],
+}
+
+rust_test_host {
+    name: "jni_host_test_tests_threads_attach_guard",
+    defaults: ["jni_test_defaults_jni"],
+    // has rustc warnings
+    srcs: ["tests/threads_attach_guard.rs"],
+    test_options: {
+        unit_test: true,
+    },
+}
+
+rust_test {
+    name: "jni_device_test_tests_threads_attach_guard",
+    defaults: ["jni_test_defaults_jni"],
+    // has rustc warnings
+    srcs: ["tests/threads_attach_guard.rs"],
+}
+
+rust_test_host {
+    name: "jni_host_test_tests_threads_detach",
+    defaults: ["jni_test_defaults_jni"],
+    // has rustc warnings
+    srcs: ["tests/threads_detach.rs"],
+    test_options: {
+        unit_test: true,
+    },
+}
+
+rust_test {
+    name: "jni_device_test_tests_threads_detach",
+    defaults: ["jni_test_defaults_jni"],
+    // has rustc warnings
+    srcs: ["tests/threads_detach.rs"],
+}
+
+rust_test_host {
+    name: "jni_host_test_tests_threads_detach_daemon",
+    defaults: ["jni_test_defaults_jni"],
+    // has rustc warnings
+    srcs: ["tests/threads_detach_daemon.rs"],
+    test_options: {
+        unit_test: true,
+    },
+}
+
+rust_test {
+    name: "jni_device_test_tests_threads_detach_daemon",
+    defaults: ["jni_test_defaults_jni"],
+    // has rustc warnings
+    srcs: ["tests/threads_detach_daemon.rs"],
+}
+
+rust_test_host {
+    name: "jni_host_test_tests_threads_explicit_detach",
+    defaults: ["jni_test_defaults_jni"],
+    // has rustc warnings
+    srcs: ["tests/threads_explicit_detach.rs"],
+    test_options: {
+        unit_test: true,
+    },
+}
+
+rust_test {
+    name: "jni_device_test_tests_threads_explicit_detach",
+    defaults: ["jni_test_defaults_jni"],
+    // has rustc warnings
+    srcs: ["tests/threads_explicit_detach.rs"],
+}
+
+rust_test_host {
+    name: "jni_host_test_tests_threads_explicit_detach_daemon",
+    defaults: ["jni_test_defaults_jni"],
+    // has rustc warnings
+    srcs: ["tests/threads_explicit_detach_daemon.rs"],
+    test_options: {
+        unit_test: true,
+    },
+}
+
+rust_test {
+    name: "jni_device_test_tests_threads_explicit_detach_daemon",
+    defaults: ["jni_test_defaults_jni"],
+    // has rustc warnings
+    srcs: ["tests/threads_explicit_detach_daemon.rs"],
+}
+
+rust_test_host {
+    name: "jni_host_test_tests_threads_explicit_detach_permanent",
+    defaults: ["jni_test_defaults_jni"],
+    // has rustc warnings
+    srcs: ["tests/threads_explicit_detach_permanent.rs"],
+    test_options: {
+        unit_test: true,
+    },
+}
+
+rust_test {
+    name: "jni_device_test_tests_threads_explicit_detach_permanent",
+    defaults: ["jni_test_defaults_jni"],
+    // has rustc warnings
+    srcs: ["tests/threads_explicit_detach_permanent.rs"],
+}
+
+rust_test_host {
+    name: "jni_host_test_tests_threads_nested_attach_daemon",
+    defaults: ["jni_test_defaults_jni"],
+    // has rustc warnings
+    srcs: ["tests/threads_nested_attach_daemon.rs"],
+    test_options: {
+        unit_test: true,
+    },
+}
+
+rust_test {
+    name: "jni_device_test_tests_threads_nested_attach_daemon",
+    defaults: ["jni_test_defaults_jni"],
+    // has rustc warnings
+    srcs: ["tests/threads_nested_attach_daemon.rs"],
+}
+
+rust_test_host {
+    name: "jni_host_test_tests_threads_nested_attach_guard",
+    defaults: ["jni_test_defaults_jni"],
+    // has rustc warnings
+    srcs: ["tests/threads_nested_attach_guard.rs"],
+    test_options: {
+        unit_test: true,
+    },
+}
+
+rust_test {
+    name: "jni_device_test_tests_threads_nested_attach_guard",
+    defaults: ["jni_test_defaults_jni"],
+    // has rustc warnings
+    srcs: ["tests/threads_nested_attach_guard.rs"],
+}
+
+rust_test_host {
+    name: "jni_host_test_tests_threads_nested_attach_permanently",
+    defaults: ["jni_test_defaults_jni"],
+    // has rustc warnings
+    srcs: ["tests/threads_nested_attach_permanently.rs"],
+    test_options: {
+        unit_test: true,
+    },
+}
+
+rust_test {
+    name: "jni_device_test_tests_threads_nested_attach_permanently",
+    defaults: ["jni_test_defaults_jni"],
+    // has rustc warnings
+    srcs: ["tests/threads_nested_attach_permanently.rs"],
+}
+
 rust_library {
     name: "libjni",
     // has rustc warnings
