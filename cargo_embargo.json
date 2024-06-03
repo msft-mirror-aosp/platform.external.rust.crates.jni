@@ -4,5 +4,10 @@
     "com.android.uwb"
   ],
   "min_sdk_version": "29",
-  "tests": true
+  "tests": true,
+  "package": {
+    "jni": {
+      "patch": "patches/Android.bp.diff"
+    }
+  }
 }
