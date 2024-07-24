@@ -1,0 +1,39 @@
+package {
+    default_applicable_licenses: ["external_rust_crates_jni_0_20_0_license"],
+}
+
+license {
+    name: "external_rust_crates_jni_0_20_0_license",
+    visibility: [":__subpackages__"],
+    license_kinds: [
+        "SPDX-license-identifier-Apache-2.0",
+    ],
+    license_text: [
+        "LICENSE",
+    ],
+}
+
+rust_library {
+    name: "libjni_legacy",
+    host_supported: true,
+    crate_name: "jni",
+    cargo_env_compat: true,
+    cargo_pkg_version: "0.20.0",
+    srcs: ["src/lib.rs"],
+    edition: "2018",
+    features: ["default"],
+    rustlibs: [
+        "libcesu8",
+        "libcombine",
+        "libjni_sys",
+        "liblog_rust",
+        "libthiserror",
+    ],
+    apex_available: [
+        "//apex_available:platform",
+        "com.android.uwb",
+    ],
+    product_available: true,
+    vendor_available: true,
+    min_sdk_version: "29",
+}
